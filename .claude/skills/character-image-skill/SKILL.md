@@ -1,3 +1,8 @@
+---
+name: character-image-skill
+description: 小说人物文生图提示词生成技能包。根据小说大纲和人物小传，生成高质量的人物角色文生图提示词，支持单个人物或多人物批量处理，适配主流文生图模型（如Midjourney、Stable Diffusion）。
+---
+
 # Character Image Skill - 小说人物文生图提示词生成技能
 
 ## 技能描述
@@ -46,34 +51,6 @@
 - 设置关键词权重（如: (detailed face:1.2)）
 - 适配模型特性（Midjourney/SD）
 
-## 参数配置
-```yaml
-config:
-  prompt_length: "detailed"          # 提示词长度: concise/detailed/elaborate
-  style_weight: 1.2                 # 风格权重
-  character_limit: 5                # 单次处理人物数量限制
-  model_adapter: "midjourney"       # 目标模型: midjourney/stable-diffusion
-  background_inclusion: true        # 是否包含背景描述
-  personality_mapping: true         # 是否进行性格映射
-```
-
-## 使用方法
-
-### 1. 基本调用
-```
-/skill character-image-skill --novel "小说名" --outline-path "path/to/outline.md" --character-path "path/to/character.md"
-```
-
-### 2. 参数调整
-```
-/skill character-image-skill --novel "小说名" --config style_weight=1.5,background_inclusion=false
-```
-
-### 3. 批量处理
-```
-/skill character-image-skill --batch --novel-dir "novels/xianyan/"
-```
-
 ## 输出模板示例
 
 ```markdown
@@ -109,9 +86,3 @@ A teenage boy of 18 years old, with sword-like eyebrows and star-like eyes, a hi
 - 支持不同风格标签预设
 - 支持批量导出多种格式
 - 支持提示词质量评估
-
-## 更新日志
-- v1.0.0: 初始版本，支持基本的人物提示词生成
-- v1.1.0: 增加批量处理功能
-- v1.2.0: 添加参数配置选项
-- v1.3.0: 优化英文提示词模型适配

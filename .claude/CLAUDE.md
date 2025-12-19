@@ -17,59 +17,82 @@
 
 [文件结构]
     project/
-    ├── novels/                      # 所有小说存放目录
-    │   ├── xianyan/                 # 现代言情小说目录
-    │   │   ├── <小说名>/
-    │   │   │   ├── outline.md       # 故事大纲
-    │   │   │   ├── character.md     # 人物小传
-    │   │   │   ├── chapter_index.md # 章节目录
-    │   │   │   └── chapters/        # 章节正文目录
-    │   │   │       ├── Chapter-01.md
-    │   │   │       └── ...
-    │   │   └── <另一本小说名>/
-    │   └── xuanhuan/                # 玄幻小说目录
-    │       ├── <小说名>/
-    │       │   ├── outline.md       # 故事大纲
-    │       │   ├── character.md     # 人物小传
-    │       │   ├── chapter_index.md # 章节目录
-    │       │   └── chapters/        # 章节正文目录
-    │       │       ├── Chapter-01.md
-    │       │       └── ...
-    │       └── <另一本小说名>/
-    ├── scripts/                     # 所有剧本存放目录
-    │   ├── xianyan/                 # 现代言情剧本目录
-    │   │   └── <小说名>/            # 对应小说的剧本
+    ├── xianyan-module/              # 现代言情模块目录
+    │   ├── novels/                  # 现代言情小说存放目录
+    │   │   └── <小说名>/
+    │   │       ├── outline.md       # 故事大纲
+    │   │       ├── character.md     # 人物小传
+    │   │       ├── chapter_index.md # 章节目录
+    │   │       └── chapters/        # 章节正文目录
+    │   │           ├── Chapter-01.md
+    │   │           └── ...
+    │   ├── scripts/                 # 现代言情剧本存放目录
+    │   │   └── <小说名>/
     │   │       ├── script_outline.md    # 剧本大纲
     │   │       └── episodes/            # 分集剧本目录
     │   │           ├── Episode-01.md
     │   │           └── ...
-    │   └── xuanhuan/                # 玄幻剧本目录
-    │       └── <小说名>/
-    │           ├── script_outline.md
-    │           └── episodes/
-    │               ├── Episode-01.md
-    │               └── ...
-    └── .claude/
-        ├── CLAUDE.md                # 项目规则和主Agent配置
+    │   └── .claude/                 # 现代言情模块配置
+    │       ├── CLAUDE.md
+    │       ├── skills/
+    │       │   ├── xianyan-skill/   # 现代言情创作skill
+    │       │   │   ├── SKILL.md
+    │       │   │   ├── output-style.md
+    │       │   │   ├── outline-method.md
+    │       │   │   ├── templates/
+    │       │   │   └── examples/
+    │       │   └── script-skill/    # 剧本创作skill
+    │       │       ├── SKILL.md
+    │       │       ├── output-style.md
+    │       │       ├── outline-method.md
+    │       │       ├── templates/
+    │       │       └── examples/
+    │       └── agents/
+    │           └── xianyan-alignment.md
+    │
+    ├── xuanhuan-module/             # 玄幻小说模块目录
+    │   ├── novels/                  # 玄幻小说存放目录
+    │   │   └── <小说名>/
+    │   │       ├── outline.md       # 故事大纲
+    │   │       ├── character.md     # 人物小传
+    │   │       ├── chapter_index.md # 章节目录
+    │   │       └── chapters/        # 章节正文目录
+    │   │           ├── Chapter-01.md
+    │   │           └── ...
+    │   ├── scripts/                 # 玄幻剧本存放目录
+    │   │   └── <小说名>/
+    │   │       ├── script_outline.md
+    │   │       └── episodes/
+    │   │           ├── Episode-01.md
+    │   │           └── ...
+    │   └── .claude/                 # 玄幻模块配置
+    │       ├── CLAUDE.md
+    │       ├── skills/
+    │       │   ├── xuanhuan-skill/  # 玄幻小说创作skill
+    │       │   │   ├── SKILL.md
+    │       │   │   ├── output-style.md
+    │       │   │   ├── outline-method.md
+    │       │   │   ├── templates/
+    │       │   │   └── examples/
+    │       │   └── script-skill/    # 剧本创作skill
+    │       │       ├── SKILL.md
+    │       │       ├── output-style.md
+    │       │       ├── outline-method.md
+    │       │       ├── templates/
+    │       │       └── examples/
+    │       └── agents/
+    │           └── xuanhuan-alignment.md
+    │
+    ├── character-image/             # 角色文生图提示词存放目录
+    │   └── <小说名>/
+    │       └── [小说名]_角色文生图提示词汇总.md
+    │
+    └── .claude/                    # 主项目配置
+        ├── CLAUDE.md               # 项目规则和主Agent配置
+        ├── settings.local.json     # 本地设置
         └── skills/
-            ├── xianyan-skill/       # 现代言情创作skill（法则+风格+模板+示例）
-            │   ├── SKILL.md
-            │   ├── output-style.md
-            │   ├── outline-method.md
-            │   ├── templates/
-            │   └── examples/
-            ├── xuanhuan-skill/      # 玄幻小说创作skill（法则+风格+模板+示例）
-            │   ├── SKILL.md
-            │   ├── output-style.md
-            │   ├── outline-method.md
-            │   ├── templates/
-            │   └── examples/
-            └── script-skill/        # 剧本创作skill（法则+风格+模板+示例）
-                ├── SKILL.md
-                ├── output-style.md
-                ├── outline-method.md
-                ├── templates/
-                └── examples/
+            └── character-image-skill/  # 角色文生图生成skill
+                └── SKILL.md
 
 [总体规则]
     - 严格按照 故事大纲 → 人物小传 → 章节目录 → 章节正文 的流程创作
@@ -96,7 +119,8 @@
 
 [工作流程]
     [小说类型选择]
-        首次创作时，需要用户选择小说类型：
+        当用户开始创作或切换小说时：
+
         "请选择您要创作的小说类型：
 
         **1. 现代言情小说** (xianyan)
@@ -109,10 +133,16 @@
         - 修炼升级体系
         - 风格：史诗、热血、想象力丰富
 
+        **开始创作新小说**：
         请输入：**/start <类型>** 来开始创作
-        例如：/start xianyan 或 /start xuanhuan"
+        例如：/start xianyan 或 /start xuanhuan
+
+        **继续创作已有小说**：
+        请输入：**/continue** 查看已有小说列表并选择继续创作"
 
         记录用户选择的类型和小说名称，用于后续所有操作。
+
+        当用户选择 /continue 时，扫描各模块目录下的已有小说，提供选择列表。
 
     [故事大纲创作阶段]
         第一步：需求收集
@@ -182,7 +212,28 @@
 
                 角色们已经鲜活起来了！有需要调整的地方吗？
 
-                接下来让我们规划每一章的精彩内容 → 输入 **/catalog**"
+                想要生成角色AI绘画提示词吗？ → 输入 **/image**
+
+                或者继续规划章节内容 → 输入 **/catalog**"
+
+    [人物生成阶段]
+        收到"/image"指令后：
+
+            第一步：读取上下文
+                读取当前小说的 outline.md 了解故事背景
+                读取当前小说的 character.md 了解人物性格特点
+
+            第二步：调用Skill并生成
+                1. 调用 character-image-skill 技能包
+                2. 基于小说大纲和人物小传生成角色文生图提示词
+                3. 创建 character-image 目录，写入 `[小说名]_角色文生图提示词汇总.md`
+
+            第三步：通知用户
+                "✅ **角色文生图提示词已保存至 character-image/<小说名>/[小说名]_角色文生图提示词汇总.md**
+
+                人物形象已经转化为可用的AI绘画提示词！
+
+                继续规划章节内容 → 输入 **/catalog**"
 
     [章节目录创作阶段]
         收到"/catalog"指令后：
@@ -294,7 +345,9 @@
 
 [指令集 - 前缀 "/"]
     - start <类型>：选择小说类型并开始创作（xianyan/xuanhuan）
+    - continue：查看已有小说列表并选择继续创作
     - character：执行 [人物小传创作阶段]
+    - image：执行 [人物生成阶段]，生成角色文生图提示词
     - catalog：执行 [章节目录创作阶段]
     - write [章节号]：执行 [章节正文创作阶段]
     - script：执行 [剧本改编阶段]
@@ -315,9 +368,11 @@
 
     🎬 **新增功能**：
     - 剧本改编：将小说改编为标准短剧剧本
+    - 角色生成：根据人物小传生成AI绘画提示词
 
     💡 **提示**：
     - 首次创作请使用 **/start <类型>** 选择小说类型
+    - 继续创作已有小说请使用 **/continue**
     - 完成小说后可使用 **/script** 改编为剧本
     - 输入 **/help** 查看所有可用指令和使用说明
 
