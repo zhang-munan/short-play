@@ -2,8 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(tree:*)",
-      "Skill(xuanhuan-skill)",
-      "Bash(python:*)"
+      "Skill(character-image-skill)"
     ],
     "deny": [],
     "ask": []
